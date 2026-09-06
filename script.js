@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initNavigation();
   initDemoSimulator();
+  initCertificatesModal();
   initContactForm();
 });
 
@@ -200,6 +201,83 @@ function initDemoSimulator() {
     });
   });
 
+  // AI Stock Research Simulation
+  const runStockBtn = document.getElementById('run-stock-btn');
+  if (runStockBtn) {
+    runStockBtn.addEventListener('click', () => {
+      const ticker = document.getElementById('ticker-select').value;
+      const agent = document.getElementById('agent-select').value;
+      const outputBox = document.getElementById('stock-output');
+
+      outputBox.innerHTML = `
+<div class="typing-indicator" style="color: var(--accent-cyan); font-weight: bold; margin-bottom: 0.5rem;">
+  ⚡ Spawning LangGraph Multi-Agent Workflow for ${ticker}...
+</div>
+`;
+
+      setTimeout(() => {
+        let analysisData = {};
+        if (ticker === 'NVDA') {
+          analysisData = {
+            ticker: "NVDA",
+            company: "NVIDIA Corporation",
+            consensus: "STRONG BUY",
+            confidence: "94.8%",
+            agents_active: ["News Sentiment", "Technical RSI/MACD", "Monte Carlo Risk", "DCF Valuation"],
+            target_price: "$145.50",
+            monte_carlo_var_95: "-4.2% (Low Downside Risk)"
+          };
+        } else if (ticker === 'AAPL') {
+          analysisData = {
+            ticker: "AAPL",
+            company: "Apple Inc.",
+            consensus: "BUY",
+            confidence: "88.2%",
+            agents_active: ["Ecosystem Growth", "DCF Valuation", "Technical Moving Avg"],
+            target_price: "$240.00",
+            monte_carlo_var_95: "-2.8% (Moderate Risk)"
+          };
+        } else if (ticker === 'TSLA') {
+          analysisData = {
+            ticker: "TSLA",
+            company: "Tesla Inc.",
+            consensus: "HOLD / VOLATILE",
+            confidence: "79.4%",
+            agents_active: ["Volatility Risk", "News Momentum", "Automotive & Energy Margin"],
+            target_price: "$225.00",
+            monte_carlo_var_95: "-8.5% (High Volatility)"
+          };
+        } else {
+          analysisData = {
+            ticker: "MSFT",
+            company: "Microsoft Corp.",
+            consensus: "STRONG BUY",
+            confidence: "92.1%",
+            agents_active: ["Cloud Azure Growth", "GenAI Enterprise Adoption", "DCF Valuation"],
+            target_price: "$480.00",
+            monte_carlo_var_95: "-3.1% (Low Downside Risk)"
+          };
+        }
+
+        outputBox.innerHTML = `
+<span style="color: #6366f1;">// LANGGRAPH MULTI-AGENT STOCK INTELLIGENCE OUTPUT</span>
+{
+  <span style="color: #38bdf8;">"status"</span>: <span style="color: #10b981;">"200 EXECUTED"</span>,
+  <span style="color: #38bdf8;">"symbol"</span>: <span style="color: #f59e0b;">"${analysisData.ticker}"</span>,
+  <span style="color: #38bdf8;">"company_name"</span>: <span style="color: #f59e0b;">"${analysisData.company}"</span>,
+  <span style="color: #38bdf8;">"agent_consensus"</span>: <span style="color: #10b981; font-weight: bold;">"${analysisData.consensus}"</span>,
+  <span style="color: #38bdf8;">"confidence_score"</span>: <span style="color: #00f2fe;">"${analysisData.confidence}"</span>,
+  <span style="color: #38bdf8;">"12m_target_price"</span>: <span style="color: #10b981;">"${analysisData.target_price}"</span>,
+  <span style="color: #38bdf8;">"monte_carlo_95_var"</span>: <span style="color: #f59e0b;">"${analysisData.monte_carlo_var_95}"</span>,
+  <span style="color: #38bdf8;">"contributing_agents"</span>: [
+    ${analysisData.agents_active.map(a => `\n    <span style="color: #a855f7;">"${a}"</span>`).join(',')}
+  ]
+}
+`;
+      }, 700);
+    });
+  }
+
   // AI Interview Copilot Simulation
   const runInterviewBtn = document.getElementById('run-interview-btn');
   if (runInterviewBtn) {
@@ -361,3 +439,165 @@ function initContactForm() {
     contactForm.reset();
   });
 }
+
+/* --------------------------------------------------
+   7. Verified Certificates Modal Handler
+-------------------------------------------------- */
+function initCertificatesModal() {
+  const certCards = document.querySelectorAll('.cert-card[data-cert]');
+  const modalOverlay = document.getElementById('cert-modal');
+  const modalCloseBtn = document.getElementById('modal-close');
+  const modalContent = document.getElementById('modal-content');
+
+  if (!modalOverlay || !modalContent) return;
+
+  const certDetails = {
+    'langchain': {
+      title: 'Foundation: Introduction to LangChain - Python',
+      provider: 'LangChain Academy',
+      badgeClass: 'provider-langchain',
+      icon: 'fas fa-link',
+      issued: 'September 05, 2026',
+      validity: 'Sep 05, 2026 – Sep 04, 2028',
+      certId: '5dgafuzqmz',
+      recipient: 'Nithin Asi',
+      imgSrc: 'assets/certificates/langchain_certificate.png',
+      summary: 'Comprehensive hands-on certification covering LLM application development, prompt management, vector index retriever architectures, RAG memory components, and autonomous agent creation using LangChain and Python.',
+      skills: ['LangChain Framework', 'RAG Architecture', 'Vector Stores & Embeddings', 'Prompt Engineering', 'LLM Agentic Tooling']
+    },
+    'hackerrank': {
+      title: 'Python (Basic) Skill Certification',
+      provider: 'HackerRank Certification',
+      badgeClass: 'provider-hackerrank',
+      icon: 'fab fa-hackerrank',
+      issued: 'July 02, 2026',
+      validity: 'Lifetime Verified',
+      certId: '2883B4F723E2',
+      recipient: 'Nithin Asi',
+      imgSrc: 'assets/certificates/hackerrank_python_certificate.png',
+      summary: 'Proctored technical assessment validating advanced proficiency in Python 3 programming, data structure manipulation, algorithm design, control flow, object-oriented concepts, and error handling.',
+      skills: ['Python 3', 'Algorithms', 'Data Structures', 'Functional Programming', 'String & Array Operations']
+    },
+    'kaggle-ml': {
+      title: 'Intro to Machine Learning',
+      provider: 'Kaggle Learn',
+      badgeClass: 'provider-kaggle',
+      icon: 'fab fa-kaggle',
+      issued: 'May 09, 2026',
+      instructor: 'Dan Becker (Kaggle Instructor)',
+      recipient: 'Nithin Asi',
+      imgSrc: 'assets/certificates/kaggle_ml_certificate.png',
+      summary: 'Practical certification in core machine learning workflows including exploratory data analysis, decision trees, random forest ensemble modeling, cross-validation metrics, and scikit-learn model optimization.',
+      skills: ['Machine Learning', 'Scikit-Learn', 'Decision Trees', 'Random Forests', 'Model Validation']
+    },
+    'kaggle-pandas': {
+      title: 'Pandas Data Analysis',
+      provider: 'Kaggle Learn',
+      badgeClass: 'provider-kaggle',
+      icon: 'fab fa-kaggle',
+      issued: 'August 28, 2026',
+      instructor: 'Aleksey Bilogur (Kaggle Instructor)',
+      recipient: 'Nithin Asi',
+      imgSrc: 'assets/certificates/kaggle_pandas_certificate.png',
+      summary: 'Specialized data manipulation certification focusing on complex DataFrame transformations, indexing strategies, summary functions, group-by aggregations, data cleaning, and merging large multi-source datasets.',
+      skills: ['Pandas DataFrames', 'Data Cleaning', 'Groupby Aggregations', 'Exploratory Data Analysis', 'Series Operations']
+    },
+    'kaggle-python': {
+      title: 'Python Programming',
+      provider: 'Kaggle Learn',
+      badgeClass: 'provider-kaggle',
+      icon: 'fab fa-kaggle',
+      issued: 'April 04, 2026',
+      instructor: 'Colin Morris (Kaggle Instructor)',
+      recipient: 'Nithin Asi',
+      imgSrc: 'assets/certificates/kaggle_python_certificate.png',
+      summary: 'Foundational data science Python certification emphasizing algorithmic thinking, list comprehensions, dictionary indexing, custom function design, and external scientific library integration.',
+      skills: ['Python Syntax', 'List Comprehensions', 'Custom Functions', 'Control Flow', 'Library Modules']
+    },
+    'cisco': {
+      title: 'Python Essentials 1 & 2',
+      provider: 'Cisco Networking Academy',
+      badgeClass: 'provider-cisco',
+      icon: 'fas fa-network-wired',
+      issued: 'Completed',
+      validity: 'Verified Academy Credential',
+      recipient: 'Nithin Asi',
+      imgSrc: 'assets/certificates/cisco_python_certificate.png',
+      summary: 'Two-part comprehensive Cisco curriculum covering fundamental and intermediate Python programming, object-oriented software design, generator functions, exception processing, and modular software packaging.',
+      skills: ['Python Fundamentals', 'Object-Oriented Programming', 'Modules & Packages', 'Exception Handling', 'File I/O']
+    }
+  };
+
+  certCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const key = card.dataset.cert;
+      const data = certDetails[key];
+      if (!data) return;
+
+      modalContent.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+          <div class="cert-provider-badge ${data.badgeClass}">
+            <i class="${data.icon}"></i> ${data.provider}
+          </div>
+          <span style="color: var(--accent-emerald); font-size: 0.85rem; font-weight: 600;">
+            <i class="fas fa-certificate"></i> Verified Certificate
+          </span>
+        </div>
+
+        <div style="margin-bottom: 1rem; border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); background: #0b0f17;">
+          <img src="${data.imgSrc}" alt="${data.title}" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.3rem; line-height: 1.3;">
+          ${data.title}
+        </h2>
+        <p style="color: var(--accent-cyan); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">
+          Awarded to: ${data.recipient}
+        </p>
+
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 0.8rem; margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+          ${data.summary}
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1rem; font-size: 0.82rem; color: var(--text-muted);">
+          <div><strong style="color: var(--text-primary);">Issued Date:</strong> ${data.issued}</div>
+          ${data.certId ? `<div><strong style="color: var(--text-primary);">Certificate ID:</strong> <code style="color: var(--accent-cyan);">${data.certId}</code></div>` : ''}
+          ${data.instructor ? `<div><strong style="color: var(--text-primary);">Instructor:</strong> ${data.instructor}</div>` : ''}
+          ${data.validity ? `<div><strong style="color: var(--text-primary);">Validity:</strong> ${data.validity}</div>` : ''}
+        </div>
+
+        <div style="margin-bottom: 1.2rem;">
+          <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem;">Key Competencies:</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+            ${data.skills.map(s => `<span class="tech-badge" style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc;">${s}</span>`).join('')}
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+          <a href="${data.imgSrc}" download="${key}_certificate.png" class="btn btn-primary" style="padding: 0.4rem 1.1rem; font-size: 0.85rem;">
+            <i class="fas fa-download"></i> Download Image
+          </a>
+          <button onclick="closeCertModal()" class="btn btn-outline" style="padding: 0.4rem 1.1rem; font-size: 0.85rem;">
+            Close
+          </button>
+        </div>
+      `;
+
+      modalOverlay.classList.add('active');
+    });
+  });
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeCertModal);
+  }
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeCertModal();
+  });
+}
+
+function closeCertModal() {
+  const modalOverlay = document.getElementById('cert-modal');
+  if (modalOverlay) modalOverlay.classList.remove('active');
+}
+

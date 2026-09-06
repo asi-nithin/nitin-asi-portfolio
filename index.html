@@ -32,6 +32,7 @@
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#showcase" class="nav-link">AI Showcase</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
         <li><a href="#education" class="nav-link">Education</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -41,7 +42,7 @@
           <span class="status-dot"></span>
           <span>Open to AI Roles</span>
         </div>
-        <a href="assets/Nitin_Asi_Resume.pdf" target="_blank" class="btn btn-primary" download="Nitin_Asi_Resume.pdf">
+        <a href="assets/Nithin_Asi_resume.pdf" target="_blank" class="btn btn-primary" download="Nithin_Asi_resume.pdf">
           <i class="fas fa-file-download"></i> Resume PDF
         </a>
         <button class="mobile-menu-btn" aria-label="Toggle Navigation">
@@ -280,7 +281,44 @@
 
       <div class="projects-grid">
 
-        <!-- Project 1: AI Interview Preparation Copilot -->
+        <!-- Project 1: AI Stock Research & Intelligence Platform -->
+        <div class="glass-card project-card">
+          <span class="project-badge">LangGraph & Multi-Agent</span>
+          <div class="project-header">
+            <h3 class="project-title">AI Stock Research & Intelligence Platform</h3>
+            <div class="project-subtitle">Multi-Agent Autonomous Financial & Stock Intelligence System</div>
+          </div>
+          <p class="project-desc">
+            A comprehensive multi-agent financial research platform using LangGraph, FastAPI, and Streamlit to execute parallel autonomous analysis across technicals, fundamentals, news, and risk metrics.
+          </p>
+          <ul class="project-highlights">
+            <li>Built specialized agents for <strong>news, financials, technicals, risk, valuation</strong>, and peer comparisons.</li>
+            <li>Generates <strong>buy/sell recommendations with confidence scores</strong> and automated PDF research reports.</li>
+            <li>Features live market data streams, portfolio analysis, equity screening, AI chat, and <strong>Monte Carlo simulations</strong>.</li>
+            <li>Powered by <strong>LangGraph, FastAPI, Streamlit, Google Gemini</strong>, and <strong>Groq</strong>.</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">LangGraph</span>
+              <span class="tech-badge">FastAPI</span>
+              <span class="tech-badge">Streamlit</span>
+              <span class="tech-badge">Gemini</span>
+              <span class="tech-badge">Groq</span>
+              <span class="tech-badge">Monte Carlo</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://ai-stock-research-2mv2rdnbxsefrxtk7a89mb.streamlit.app/" target="_blank" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+                <i class="fas fa-external-link-alt"></i> Live App
+              </a>
+              <a href="#showcase" class="btn btn-outline" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+                <i class="fas fa-play"></i> Try Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: AI Interview Preparation Copilot -->
         <div class="glass-card project-card">
           <span class="project-badge">Generative AI & LLM</span>
           <div class="project-header">
@@ -307,6 +345,9 @@
               <span class="tech-badge">RAG</span>
             </div>
             <div class="project-actions">
+              <a href="https://github.com/asi-nithin" target="_blank" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+                <i class="fab fa-github"></i> GitHub Repo
+              </a>
               <a href="#showcase" class="btn btn-outline" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
                 <i class="fas fa-play"></i> Try Demo
               </a>
@@ -314,7 +355,7 @@
           </div>
         </div>
 
-        <!-- Project 2: Disease Prediction System -->
+        <!-- Project 3: Disease Prediction System -->
         <div class="glass-card project-card">
           <span class="project-badge">92% ML Accuracy</span>
           <div class="project-header">
@@ -340,6 +381,9 @@
               <span class="tech-badge">Seaborn</span>
             </div>
             <div class="project-actions">
+              <a href="https://disease-symptom-prediction-tfa7xadbp4whowm9dw5rtw.streamlit.app/" target="_blank" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+                <i class="fas fa-external-link-alt"></i> Live App
+              </a>
               <a href="#showcase" class="btn btn-outline" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
                 <i class="fas fa-play"></i> Try Demo
               </a>
@@ -367,7 +411,10 @@
             <span class="dot dot-green"></span>
           </div>
           <div class="showcase-tabs">
-            <button class="tab-btn active" data-tab="demo-copilot">
+            <button class="tab-btn active" data-tab="demo-stock">
+              <i class="fas fa-chart-line"></i> AI Stock Intelligence
+            </button>
+            <button class="tab-btn" data-tab="demo-copilot">
               <i class="fas fa-robot"></i> AI Interview Copilot
             </button>
             <button class="tab-btn" data-tab="demo-predictor">
@@ -378,8 +425,51 @@
 
         <div class="showcase-body">
           
-          <!-- Panel 1: AI Interview Copilot Simulator -->
-          <div id="demo-copilot" class="demo-panel active">
+          <!-- Panel 1: AI Stock Research Simulator -->
+          <div id="demo-stock" class="demo-panel active">
+            <div class="demo-grid">
+              <div class="demo-controls">
+                <div class="demo-control-group">
+                  <label class="demo-label">Select Target Ticker Symbol:</label>
+                  <select id="ticker-select" class="demo-select">
+                    <option value="NVDA">NVDA (NVIDIA Corporation)</option>
+                    <option value="AAPL">AAPL (Apple Inc.)</option>
+                    <option value="TSLA">TSLA (Tesla Inc.)</option>
+                    <option value="MSFT">MSFT (Microsoft Corp.)</option>
+                  </select>
+                </div>
+                <div class="demo-control-group">
+                  <label class="demo-label">Active Analysis Agent Pipeline:</label>
+                  <select id="agent-select" class="demo-select">
+                    <option value="full">Full Multi-Agent Consensus (News, Tech, Risk, Valuation)</option>
+                    <option value="technical">Technical Indicator Agent (RSI, MACD, Moving Averages)</option>
+                    <option value="risk">Monte Carlo Simulation & Volatility Risk Agent</option>
+                  </select>
+                </div>
+                <button id="run-stock-btn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                  <i class="fas fa-bolt"></i> Execute LangGraph Multi-Agent Analysis
+                </button>
+                <div style="margin-top: 0.8rem; text-align: center;">
+                  <a href="https://ai-stock-research-2mv2rdnbxsefrxtk7a89mb.streamlit.app/" target="_blank" style="color: var(--accent-cyan); font-size: 0.85rem; text-decoration: none;">
+                    <i class="fas fa-external-link-alt"></i> Open Full Streamlit App
+                  </a>
+                </div>
+              </div>
+
+              <div class="demo-output-box" id="stock-output">
+                <div class="output-title">
+                  <span><i class="fas fa-terminal"></i> LangGraph Agent State Terminal</span>
+                  <span style="color: var(--accent-cyan);">Streamlit App Live</span>
+                </div>
+                <div style="color: var(--text-secondary);">
+                  Select a ticker symbol on the left and click "Execute LangGraph Multi-Agent Analysis" to simulate real-time stock intelligence output...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: AI Interview Copilot Simulator -->
+          <div id="demo-copilot" class="demo-panel">
             <div class="demo-grid">
               <div class="demo-controls">
                 <div class="demo-control-group">
@@ -447,6 +537,152 @@
           </div>
 
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Certifications & Credentials Section -->
+  <section id="certificates" class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-subtitle">Verified Technical Qualifications</span>
+        <h2 class="section-title">Certifications & Achievements</h2>
+      </div>
+
+      <div class="certificates-grid">
+
+        <!-- 1. LangChain Academy -->
+        <div class="glass-card cert-card" data-cert="langchain">
+          <div class="cert-header">
+            <div class="cert-provider-badge provider-langchain">
+              <i class="fas fa-link"></i> LangChain Academy
+            </div>
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+          <h3 class="cert-title">Foundation: Introduction to LangChain - Python</h3>
+          <p class="cert-org">LangChain Academy Certification</p>
+          <div class="cert-meta">
+            <span><i class="far fa-calendar-alt"></i> Issued: Sep 05, 2026</span>
+            <span><i class="fas fa-barcode"></i> ID: 5dgafuzqmz</span>
+          </div>
+          <div class="cert-footer-action">
+            <span class="cert-view-btn"><i class="fas fa-eye"></i> View Details</span>
+            <a href="assets/certificates/langchain_certificate.png" download="LangChain_Academy_Certificate.png" class="cert-dl-link" onclick="event.stopPropagation()">
+              <i class="fas fa-download"></i> Download Image
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. HackerRank Python Basic -->
+        <div class="glass-card cert-card" data-cert="hackerrank">
+          <div class="cert-header">
+            <div class="cert-provider-badge provider-hackerrank">
+              <i class="fab fa-hackerrank"></i> HackerRank
+            </div>
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+          <h3 class="cert-title">Python (Basic) Skill Certification</h3>
+          <p class="cert-org">HackerRank Certification</p>
+          <div class="cert-meta">
+            <span><i class="far fa-calendar-alt"></i> Issued: Jul 02, 2026</span>
+            <span><i class="fas fa-barcode"></i> ID: 2883B4F723E2</span>
+          </div>
+          <div class="cert-footer-action">
+            <span class="cert-view-btn"><i class="fas fa-eye"></i> View Details</span>
+            <a href="assets/certificates/hackerrank_python_certificate.png" download="HackerRank_Python_Certificate.png" class="cert-dl-link" onclick="event.stopPropagation()">
+              <i class="fas fa-download"></i> Download Image
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Kaggle Intro to ML -->
+        <div class="glass-card cert-card" data-cert="kaggle-ml">
+          <div class="cert-header">
+            <div class="cert-provider-badge provider-kaggle">
+              <i class="fab fa-kaggle"></i> Kaggle Learn
+            </div>
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+          <h3 class="cert-title">Intro to Machine Learning</h3>
+          <p class="cert-org">Kaggle (Instructor: Dan Becker)</p>
+          <div class="cert-meta">
+            <span><i class="far fa-calendar-alt"></i> Issued: May 09, 2026</span>
+            <span><i class="fas fa-check-double"></i> Machine Learning</span>
+          </div>
+          <div class="cert-footer-action">
+            <span class="cert-view-btn"><i class="fas fa-eye"></i> View Details</span>
+            <a href="assets/certificates/kaggle_ml_certificate.png" download="Kaggle_ML_Certificate.png" class="cert-dl-link" onclick="event.stopPropagation()">
+              <i class="fas fa-download"></i> Download Image
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Kaggle Pandas -->
+        <div class="glass-card cert-card" data-cert="kaggle-pandas">
+          <div class="cert-header">
+            <div class="cert-provider-badge provider-kaggle">
+              <i class="fab fa-kaggle"></i> Kaggle Learn
+            </div>
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+          <h3 class="cert-title">Pandas Data Analysis</h3>
+          <p class="cert-org">Kaggle (Instructor: Aleksey Bilogur)</p>
+          <div class="cert-meta">
+            <span><i class="far fa-calendar-alt"></i> Issued: Aug 28, 2026</span>
+            <span><i class="fas fa-check-double"></i> Data Wrangling</span>
+          </div>
+          <div class="cert-footer-action">
+            <span class="cert-view-btn"><i class="fas fa-eye"></i> View Details</span>
+            <a href="assets/certificates/kaggle_pandas_certificate.png" download="Kaggle_Pandas_Certificate.png" class="cert-dl-link" onclick="event.stopPropagation()">
+              <i class="fas fa-download"></i> Download Image
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Kaggle Python -->
+        <div class="glass-card cert-card" data-cert="kaggle-python">
+          <div class="cert-header">
+            <div class="cert-provider-badge provider-kaggle">
+              <i class="fab fa-kaggle"></i> Kaggle Learn
+            </div>
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+          <h3 class="cert-title">Python Programming</h3>
+          <p class="cert-org">Kaggle (Instructor: Colin Morris)</p>
+          <div class="cert-meta">
+            <span><i class="far fa-calendar-alt"></i> Issued: Apr 04, 2026</span>
+            <span><i class="fas fa-check-double"></i> Core Python</span>
+          </div>
+          <div class="cert-footer-action">
+            <span class="cert-view-btn"><i class="fas fa-eye"></i> View Details</span>
+            <a href="assets/certificates/kaggle_python_certificate.png" download="Kaggle_Python_Certificate.png" class="cert-dl-link" onclick="event.stopPropagation()">
+              <i class="fas fa-download"></i> Download Image
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Cisco Python Essentials -->
+        <div class="glass-card cert-card" data-cert="cisco">
+          <div class="cert-header">
+            <div class="cert-provider-badge provider-cisco">
+              <i class="fas fa-network-wired"></i> Cisco Networking Academy
+            </div>
+            <span class="cert-status"><i class="fas fa-check-circle"></i> Verified</span>
+          </div>
+          <h3 class="cert-title">Python Essentials 1 & 2</h3>
+          <p class="cert-org">Cisco Systems</p>
+          <div class="cert-meta">
+            <span><i class="far fa-calendar-alt"></i> Cisco Academy</span>
+            <span><i class="fas fa-check-double"></i> Python Fundamentals</span>
+          </div>
+          <div class="cert-footer-action">
+            <span class="cert-view-btn"><i class="fas fa-eye"></i> View Details</span>
+            <a href="assets/certificates/cisco_python_certificate.png" download="Cisco_Python_Certificate.png" class="cert-dl-link" onclick="event.stopPropagation()">
+              <i class="fas fa-download"></i> Download Image
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -637,6 +873,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Certificate Detail Modal -->
+  <div id="cert-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
 
   <!-- Toast Notification -->
   <div id="toast" class="toast"></div>
